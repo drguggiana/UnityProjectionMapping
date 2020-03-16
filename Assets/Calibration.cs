@@ -49,7 +49,8 @@ public class Calibration {
         CvMat rotationInverse = GetRotationMatrixFromRotationVector(rotation).Transpose(); // transpose is same as inverse for rotation matrix
         CvMat transFinal = (rotationInverse * -1) * translation.Transpose();
         _mainCamera.projectionMatrix = LoadProjectionMatrix((float)intrinsic[0, 0], (float)intrinsic[1, 1], (float)intrinsic[0, 2], (float)intrinsic[1, 2]);
-        ApplyTranslationAndRotationToCamera(transFinal, RotationConversion.RotationMatrixToEulerZXY(rotationInverse));
+		ApplyTranslationAndRotationToCamera(transFinal, RotationConversion.RotationMatrixToEulerZXY(rotationInverse));
+
     }
 
     private static CvMat CreatePointCountMatrix(int numPoints)
@@ -144,6 +145,8 @@ public class Calibration {
 
         _mainCamera.transform.position = new Vector3((float)tx, (float)ty, (float)tz);
         _mainCamera.transform.eulerAngles = new Vector3((float)r.X, (float)r.Y, (float)r.Z);
+
+
     }
 
     private CvMat CreateIntrinsicGuess(double height, double width)

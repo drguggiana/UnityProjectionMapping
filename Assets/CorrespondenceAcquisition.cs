@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -84,7 +84,7 @@ public class CorrespondenceAcquisition : MonoBehaviour
                 }
                 else
                 {
-                    // we already have an object position, now we collect the 2D correspondence
+                     // we already have an object position, now we collect the 2D correspondence
                     CaptureImagePoint();
                     TriggerCalibration();
                 }
@@ -111,7 +111,7 @@ public class CorrespondenceAcquisition : MonoBehaviour
 
         foreach (GameObject sphere in GameObject.FindGameObjectsWithTag(CALIB_SPHERE_TAG))
         {
-            sphere.renderer.enabled = _calibrating;
+            sphere.GetComponent<Renderer>().enabled = _calibrating;
         }
     }
 
@@ -159,6 +159,7 @@ public class CorrespondenceAcquisition : MonoBehaviour
     {
         GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
         sphere.transform.position = point;
+		sphere.transform.localScale = new Vector3 (0.1f, 0.1f, 0.1f);
         sphere.tag = CALIB_SPHERE_TAG;
     }
 

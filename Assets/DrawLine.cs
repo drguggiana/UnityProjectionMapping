@@ -16,15 +16,16 @@ public class DrawLine : MonoBehaviour {
 
     private void CreateLineMaterial()
     {
-        _lineMaterial = new Material("Shader \"Lines/Colored Blended\" {" +
-            "SubShader { Pass { " +
-            "    Blend SrcAlpha OneMinusSrcAlpha " +
-            "    ZWrite Off Cull Off Fog { Mode Off } " +
-            "    BindChannels {" +
-            "      Bind \"vertex\", vertex Bind \"color\", color }" +
-            "} } }");
-        _lineMaterial.hideFlags = HideFlags.HideAndDontSave;
-        _lineMaterial.shader.hideFlags = HideFlags.HideAndDontSave;
+//        _lineMaterial = new Material("Shader \"Lines/Colored Blended\" {" +
+//            "SubShader { Pass { " +
+//            "    Blend SrcAlpha OneMinusSrcAlpha " +
+//            "    ZWrite Off Cull Off Fog { Mode Off } " +
+//            "    BindChannels {" +
+//            "      Bind \"vertex\", vertex Bind \"color\", color }" +
+//            "} } }");
+//        _lineMaterial.hideFlags = HideFlags.HideAndDontSave;
+//        _lineMaterial.shader.hideFlags = HideFlags.HideAndDontSave;
+		_lineMaterial = new Material(Shader.Find("Specular"));
     }
 
     void Update()
